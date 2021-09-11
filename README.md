@@ -33,4 +33,4 @@ Se dividieron todos los datos requeridos en cinco categorías dando lugar a cinc
 
 Como todos los formularios iban a hacer uso de dos variables de estado diferentes, la primera es el objeto form{} que contiene los datos que ingresa el usuario en cada formulario, y la segunda el objeto de errors{} que guarda los errores que cometiera el usuario al momento de ir llenando el formulario y cambiar el foco del input que es cuando se realiza la validación del input, se creó un hook que crea estas dos variables de estado diferentes para cada formulario así como también las funciones que se ejecutarían en el evento onChange y onSubmit de cada input/formulario ya que siempre iban tenian que ejecutar el mismo código independientemente del formulario.
 
-Cada formulatio cuenta con 2-3 componentes diferentes dependiendo el formulario, estos son: CustomInput, CustomSelect y SaveButton.
+Cada formulario cuenta con 2-3 componentes diferentes dependiendo el formulario, estos son: CustomInput, CustomSelect y SaveButton.
