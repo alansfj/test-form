@@ -1,0 +1,6 @@
+$primary-color: #f57c01;
+
+@mixin shrinkLabel {
+  top: -1.2rem;
+  font-size: 14px;
+}

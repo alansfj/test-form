@@ -1,0 +1,75 @@
+@use 'sassVariablesMixins';
+
+.input-label-container {
+  position: relative;
+
+  & > input {
+    font-family: inherit;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    width: 100%;
+    border-radius: 4px;
+    outline: none;
+    border: 1px solid #bdbdbd;
+    color: black;
+
+    &:focus {
+      border-color: sassVariablesMixins.$primary-color;
+    }
+
+    &:focus ~ label {
+      @include sassVariablesMixins.shrinkLabel();
+      color: sassVariablesMixins.$primary-color;
+    }
+  }
+
+  & > input[type="file"] {
+    background-color: white;
+    cursor: pointer;
+    width: auto;
+  }
+
+  & > label {
+    pointer-events: none;
+    position: absolute;
+    top: 0.6rem;
+    left: 1rem;
+    transition: 300ms ease all;
+    color: #bdbdbd;
+  }
+
+  & > p {
+    margin: 0.5rem 1rem 0 1rem;
+    color: red;
+    font-weight: bold;
+  }
+
+  // controls disabled in Chrome
+
+  & input[type="number"]::-webkit-inner-spin-button,
+  & input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  // controls disabled in Firefox
+
+  & input[type="number"] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+    margin: 0;
+  }
+
+  & input[type="file"] {
+    width: 100%;
+  }
+
+  & input[type="date"] ~ .label,
+  & input[type="file"] ~ .label {
+    @include sassVariablesMixins.shrinkLabel();
+  }
+
+  & > .shrink {
+    @include sassVariablesMixins.shrinkLabel();
+  }
+}

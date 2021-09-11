@@ -1,0 +1,40 @@
+@use 'sassVariablesMixins';
+
+.select-container {
+  position: relative;
+
+  & > select {
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 1rem;
+    margin: 0 0 0.5rem 0;
+    padding: 0.5rem 1rem;
+    width: 100%;
+    border-radius: 4px;
+    outline: none;
+    background-color: white;
+    border: 1px solid #bdbdbd;
+
+    &:focus {
+      border-color: sassVariablesMixins.$primary-color;
+    }
+
+    &:focus ~ label {
+      @include sassVariablesMixins.shrinkLabel();
+      color: sassVariablesMixins.$primary-color;
+    }
+  }
+
+  & > label {
+    pointer-events: none;
+    position: absolute;
+    top: 0.6rem;
+    left: 1rem;
+    transition: 300ms ease all;
+    color: #bdbdbd;
+  }
+
+  & > .shrink {
+    @include sassVariablesMixins.shrinkLabel();
+  }
+}

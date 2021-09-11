@@ -1,0 +1,18 @@
+.grid-container {
+  display: grid;
+}
+
+@media screen and (max-width: 624px) {
+  .grid-container {
+    display: flex;
+    flex-direction: column;
+
+    & > div {
+      margin-bottom: 1rem;
+    }
+  }
+
+  div:last-child {
+    margin-bottom: 0;
+  }
+}
