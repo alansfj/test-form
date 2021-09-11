@@ -1,70 +1,36 @@
-# Getting Started with Create React App
+# Formulario responsivo y con validaciones.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Librerías usadas:
+  - Sass: se utilizó para hacer uso de sus fuciones como el nesting, los mixins, y los modulos para una mejor organización de los estilos.
 
-## Available Scripts
+## Estructura de carpetas:
 
-In the project directory, you can run:
+- src/ 
+	- components/ : carpeta de componentes. 
+	- Sass/ : carpeta de archivos .scss 
+	- hooks/ : hooks creados
+	- helpers/ : carpeta de código auxiliar como la function validate() que se utiliza para hacer las validaciones y el objeto regex que contiene las expresiones regulares con las que se llevan acabo dichas validaciones.
 
-### `npm start`
+## UX
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Todas las validaciones realizadas se ejecutan en el evento onBlur  del input (cuando quita el foco del input) para darle rápidamente feedback al usuario de y que pueda corregir sus datos no válidos enseguida.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Mientras que el usuario no corrija los datos no válidos no podrá presionar el botón que "guarda" los datos, esto obliga al usuario a corregir los datos ingresados.
 
-### `npm test`
+## UI
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+La UI del formulario es simple pero efectiva, dándole al usuario confianza a la hora de que ingrese sus datos.
 
-### `npm run build`
+El usuario puede detectar rápidamente donde se encuentra en el formulario ya que la UI resalta el input en el que se encuentra haciendo focus con un color fácilmente configurable y una animación sencilla y moderna del su respectivo label.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Para el layaout se utilizo como base el sistema de layout flexbox para darle una gran resposividad al formulario para cualquier ancho de pantalla convencional. También se creó el componente GridContainerWrapper para aplicar el sistema de layout grid a sus componentes hijos y poder crear columnas fácilmente y hacer el formulario más atractivo.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Descripción:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Lo que iba a ser un formulario enorme se dividió en varios componentes formularios diferentes para que el usuario no se sintiera abrumado llenando un solo formulario tan extenso, dichos formularios independientes se encuentran dentro de su respectivo componente FormContainer que les proporciona los mismos estilos.
 
-### `npm run eject`
+Se dividieron todos los datos requeridos en cinco categorías dando lugar a cinco formularios diferentes, estos componentes formularios son: BasicInfoForm, AddressForm, LegalRepresentativeForm, BankForm y BeneficiaryForm. 
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Como todos los formularios iban a hacer uso de dos variables de estado diferentes, la primera es el objeto form{} que contiene los datos que ingresa el usuario en cada formulario, y la segunda el objeto de errors{} que guarda los errores que cometiera el usuario al momento de ir llenando el formulario y cambiar el foco del input que es cuando se realiza la validación del input, se creó un hook que crea estas dos variables de estado diferentes para cada formulario así como también las funciones que se ejecutarían en el evento onChange y onSubmit de cada input/formulario ya que siempre iban tenian que ejecutar el mismo código independientemente del formulario.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Cada formulatio cuenta con 2-3 componentes diferentes dependiendo el formulario, estos son: CustomInput, CustomSelect y SaveButton.
