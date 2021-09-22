@@ -2,8 +2,6 @@ import React from "react";
 import "../Sass/GridContainerWrapper.scss";
 
 const GridContainerWrapper = ({ children, columns, gap }) => {
-  console.log("children", children);
-
   return (
     <div
       className="grid-container"
