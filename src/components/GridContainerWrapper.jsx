@@ -7,7 +7,6 @@ const GridContainerWrapper = ({ children, columns, gap }) => {
       className="grid-container"
       style={{
         gridTemplateColumns: `${columns || `repeat(${children.length}, 1fr)`}`,
-        // gridTemplateColumns: `${columns || `repeat(${children.length}, 1fr)`}`,
         columnGap: `${gap || "3rem"}`,
       }}
     >
